@@ -1,0 +1,37 @@
+<div class="col-xs-12"> 
+	<div class="panel panel-main  ">
+	    <div class="panel front {{panelClass}}" role="tab" id="headingOne">
+	      <h4 class="panelTitle">
+	        <a role="button" aria-expanded="false" href="#">
+	        	 <div class="img-header">
+	        <img width="100px" src="{{frontImage || 'http://res.cloudinary.com/ruizoft/image/upload/c_scale,w_100/v1450816102/no_pic_c2ayrh.jpg'}}" alt="profesor" class="img-circle"></div>
+	          <p class="name">{[name]}	</p>
+	          <p class="desc">{[desc]}</p>
+	        </a>
+	      </h4>
+	    </div>
+	    <div  class="panel back {{panelClass}} main-border " role="tabpanel" aria-labelledby="headingOne">
+	      <div class="panel-body">
+	         <div class="row">
+		         <div class="col-sm-6">
+			         <strong>Nombre:</strong>
+
+		         </div>
+		         <div class="col-sm-6">
+			         <strong>Ganancia:</strong>
+
+		         </div>
+	         </div>
+	         <div class="row bestRow" ng-repeat="best in obj | orderBy:'ganancia':true">
+		         <div class="col-sm-6">
+			         {[best.nombre]}
+		         </div>
+		         <div class="col-sm-6">
+			         {[best.ganancia | currency:"COP ":0]}
+		         </div>
+
+	         </div>
+	      </div>
+	    </div>
+    </div>
+</div>

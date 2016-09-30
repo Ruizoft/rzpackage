@@ -1,0 +1,260 @@
+.tabsContainer {
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+}
+.tab-content{
+  flex:1;
+  overflow:auto;
+
+
+  .rzExpandMain {
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+      display: none;
+
+      &.visible {
+        overflow: auto;
+        display: block;
+        padding-bottom:100px;
+      }
+    .rzExpandContainer {
+      position:relative;
+      width: 100%;
+      padding-bottom: 100%;
+      .rzExpand {
+        position:absolute;
+        width: 100%;
+        .expandForm {
+          opacity: 0;
+          .input-group {
+            text-align: left;
+            width: 100%;
+          }
+
+          
+        }
+
+
+        &.visible .expandForm  {
+          animation-name: fade;
+          animation-fill-mode: forwards;
+          animation-duration: 1.5s;
+          display: block;
+         }
+         &.visible{
+          animation-name: slide;
+          display: block;
+          animation-duration: 1.4s;
+          animation-fill-mode: forwards;
+
+          
+        }
+        &.hiddenn {
+          animation-name: slideOut;
+          animation-duration: 1s;
+          animation-fill-mode: forwards;
+
+        }
+        &.hiddenn .expandForm  {
+          animation-name: fadeOut;
+          animation-delay: 1.2s;
+          animation-duration: 0.3s;
+          animation-fill-mode: forwards;
+         }
+      }
+    }
+  }
+
+  .listContent {
+    display: none;
+    &.visible {
+      display: block;
+    }
+  }
+}
+
+.rzTabs {
+  background-color:$color2;
+  padding:10px 0px;
+  padding-bottom:0px;
+  position:relative;
+
+  .iconRow {
+    padding: 10px;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-radius:0px;
+    padding-top: 8px;
+
+    .cols{
+      text-align: left;
+      font-size:16px;
+    }
+  }
+  
+  .rzTab {
+     text-align: center;
+    a {
+      color:#fff;
+      background-color:transparent;
+      border:none;
+      font-size: 15px;
+      text-decoration: none;
+      padding: 12px 35px;
+
+    }
+  }
+  li {
+    a {
+      color:#fff;
+      background-color:transparent;
+    }
+  }
+  .tabBar {
+    position: absolute;
+    background-color:#ffff8d;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transform: translate3d(0%, 0px, 0px) scaleX(0.333333);
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    transition: -webkit-transform;
+    transition: transform;
+    transition-duration: 0.18s;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+  }
+}
+
+.list-group-item{
+
+  &.header {
+    background-color:#e8e8e8;
+    border-radius:0px !important;
+    padding: 5px 10px;
+    
+    .list-group-item-heading {
+      color: $color;
+
+    }
+  }
+
+  &:hover {
+
+    .hoverBtns {
+      display: block;
+    }
+
+  }
+  .hoverBtns {
+
+    &.checked {
+      display: block;
+        .assignBtn {
+          color: $color3;
+
+        }
+        
+      }
+
+    position: absolute;
+    padding:5px;
+    top: 1%;
+    right: 5%;
+    display: none;
+    z-index: 1001;
+    background-color:#fff;
+
+    .Btn {
+      font-size: 22px;
+      cursor: pointer;  
+      p {
+        font-size: 11px;
+      }
+    }
+
+    .assignBtn {
+
+    }
+    .delBtn { 
+          
+    }
+
+  }
+
+
+  
+
+
+}
+
+
+
+@keyframes fade {
+
+  0%{
+    opacity: 0;
+  }
+  100% {
+     opacity: 1;
+  }
+ }
+
+ @keyframes fadeOut {
+
+  0%{
+    opacity: 0.1;
+  }
+  100% {
+     opacity: 0;
+  }
+ }
+
+@keyframes slide {
+
+  0%{
+    height: 0%;
+    background-color: #EFEFEF;
+    opacity: 1;
+  }
+  10% {
+    z-index:200;
+  }
+  100% {
+    opacity: 1;
+     background-color: #EFEFEF;
+     height: 100%;
+     z-index:200;
+     padding-bottom:30px;
+  }
+ }
+
+ @keyframes slideOut {
+
+  0%{
+    height: 100%;
+    background-color: #EFEFEF;
+    
+    z-index: 200;
+  }
+  99% {
+     background-color: #EFEFEF;
+     height: 0%;
+     opacity: 1;
+      z-index: 200;
+     
+  }
+  100% {
+    z-index: 0;
+  }
+ }
